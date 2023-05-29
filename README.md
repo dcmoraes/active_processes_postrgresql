@@ -14,7 +14,8 @@ SELECT
    'SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid = ' || pid || ';'
 FROM pg_stat_activity 
 WHERE state in ('active','idle in transaction') 
-  AND (now() - query_start) > interval '1 seconds';
+  AND (now() - query_start) > interval '1 seconds'
+ORDER BY 1 DESC;
 ``` 
 
 LIST ACTIVE PROCESSES
